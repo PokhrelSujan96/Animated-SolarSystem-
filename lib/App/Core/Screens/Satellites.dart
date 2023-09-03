@@ -178,19 +178,4 @@ class SatellitesState extends State<Satellites> {
   }
 }
 
-class ZoomPageRoute<T> extends MaterialPageRoute<T> {
-  ZoomPageRoute({required WidgetBuilder builder, RouteSettings? settings})
-      : super(builder: builder, settings: settings);
 
-  @override
-  Widget buildTransitions(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
-    return ScaleTransition(
-      scale: Tween<double>(begin: 1.0, end: 1.0).animate(CurvedAnimation(
-          reverseCurve: Curves.easeIn,
-          parent: animation,
-          curve: Interval(0.0, 1.0, curve: Curves.easeIn))),
-      child: child,
-    );
-  }
-}
